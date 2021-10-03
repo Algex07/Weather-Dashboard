@@ -1,7 +1,12 @@
+body{
+    background-color: rgb(105, 169, 221);
+}
 
 header{
     text-align: center;
 }
-#todaysdate{
+#currentDay{
+    font-size:25px;
+    color:white;
     text-align: center;
 }
