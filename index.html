@@ -17,40 +17,38 @@
   <header>
     <h1>Weather Dashboard</h1>
   </header>
-  <p id="currentDay" class="lead"></p>
- <!-- <div style="font-size:20px " id="todaysdate"></div>-->
-  <div class="row">
-    <div class="col-3 ml-4 bg-primary rounded">
-      <form id="form">
-        <h5> Search for a City</h5>
+  <div class="container-fluid">
+    <p id="currentDay" class="lead"></p>
+    <!-- <div style="font-size:20px " id="todaysdate"></div>-->
+    <div class="row">
+      <div class="col-3 ml-3 bg-primary rounded">
+        <form id="form">
+          <h5> Search for a City</h5>
           <br>
           <input type="text" id="input">
           <br>
           <button id="search">Search</button>
-      </form>
-    </div>
-    <div class="col-8 mx-3 bg-info rounded" id="weather"></div>
-  </div>
+        </form>
+      </div>
 
-  <div class="col-4"></div>
- 
-  </div>
-  <div class="container">
-    <div class="row" id="inputFuture">
-      <div id= "day1" class="col-2 order-first">
-        DAY1
-      </div>
-      <div id= "day2" class="col-2">
-        DAY2
-      </div>
-      <div id= "day3" class="col-2">
-        DAY3
-      </div>
-      <div id= "day4" class="col-2">
-        DAY4
-      </div>
-      <div id= "day5"class="col-2 order-last">
-        DAY5
+      <div class="col-8 mx-4 bg-primary rounded" id="weather"></div>
+
+
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="row offset-md-3">
+        <div id="day1" class="col-md-2  mx-3  ml-3 mt-3 bg-primary rounded "></div>
+
+        <div id="day2" class="col-md-2 mx-3 mt-3 bg-primary rounded "></div>
+
+        <div id="day3" class="col-md-2 mx-3 mt-3 bg-primary rounded"></div>
+
+        <div id="day4" class="col-md-2 mx-3 mt-3 bg-primary rounded"></div>
+
+        <div id="day5" class="col-md-2 mx-3 mt-3 bg-primary rounded "></div>
+
       </div>
     </div>
   </div>
