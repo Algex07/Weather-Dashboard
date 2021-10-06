@@ -25,16 +25,19 @@ $(document).ready(function () {
 console.log("I am here")
 
 form.addEventListener("submit", conductSearch);
-//button.onclick = input;
+
+let search =input
 
 function conductSearch(event) {
+
     event.preventDefault();
-    let search = document.querySelector("#input").value;
+    search = document.querySelector("#input").value;
+    
     let apiCurrentWeather = apiBaseURL + search + apiKey;
-
-
-
+    
     console.log(search);
+if(!search ){
+window.location.href = "index.html"; alert("You must enter a City")}
 
 
     fetchApi(apiCurrentWeather)
@@ -53,7 +56,7 @@ function conductSearch(event) {
 
                 console.log(data);
                 results.innerHTML = ""
-
+                
                 results.innerHTML += `<h3> ${data.name}</h3>`;
 
 
@@ -65,6 +68,7 @@ function conductSearch(event) {
 
                 fetch(apiFutureDays)
                 console.log(apiFutureDays)
+                
                 fetch(apiFutureDays)
                     .then(function (response) {
                         return response.json();
@@ -73,6 +77,7 @@ function conductSearch(event) {
                     .then(function (data1) {
                         results.innerHTML = "";
                         results.innerHTML += `<h3> ${data.name}</h3>`;
+                        
 
 
                         document.body.querySelector("#weather").innerHTML
@@ -150,6 +155,8 @@ function conductSearch(event) {
 
                         let forecastDiv = document.getElementById("forecast")
                         forecastDiv.append(day1, day2, day3, day4, day5)
+
+                        
                     });
 
 
@@ -159,20 +166,16 @@ function conductSearch(event) {
                 if (searchArray.indexOf(searchData) == -1){
                     
                 
-                //compare if searchData already exist inside searchArray before doing the push
                 searchArray.push(searchData);
                 }
                 console.log(searchArray)
 
-
-               
-
-
-
-
-
+    
                 localStorage.setItem("searchArray", JSON.stringify(searchArray))
                 console.log(searchArray)
+               
+
+                
 
 
 
@@ -183,45 +186,50 @@ function conductSearch(event) {
 
             });
 
-
-
-
-
     }
 
 
-
-
-
 }
-
+let newButton;
 function renderSearchHistory(searchArray) {
-    // let retrieved = []
-    // if (localStorage.getItem("searchArray")) {
-    //     let stored = localStorage.getItem("searchArray")
-    //     let split = stored.split(",")
-    //     let combined = retrieved.concat(split)
-    //     console.log(combined)
-    //     for (i = 0; i < combined.length; i++) {
-    //         if (searchArray.indexOf(combined[i]) === -1) {
-    //             searchArray.push(combined[i])
-    //         }
-
-    //     }
-    // }
-
-
+    
     document.querySelector("#savedCity")
     ul.innerHTML = ""
     console.log(searchArray);
 
     for (let i = 0; i < searchArray.length; i++) {
-        ul.innerHTML += `<li>${searchArray[i]}</li>`
-        
-        
+        newButton = `<li><button class='btn btn-sm' data-name='${searchArray[i]}'>${searchArray[i]}</button></li>`
+        ul.innerHTML += newButton;
+         
     }
-
+ 
 }
+let clickedCity;
+let savedCityButton = document.getElementById("savedCity");
+savedCityButton.addEventListener("click", function(event){
 
-let search = searchArray
-searchArray.addEventListener("on click", conductSearch);
+//event.preventDefault()
+newButton = event.target;
+
+clickedCity = newButton.getAttribute("data-name")
+
+
+    console.log("data from clicked city", clickedCity)
+   
+
+    
+})
+
+
+
+let ClearBtn = document.getElementById("clearBtn");
+ClearBtn.addEventListener('click', function(){
+    localStorage.removeItem('searchArray');
+    window.location.href = "index.html"
+})
+
+
+
+
+
+//document.getElementById("#listcities").addEventListener("onclick" , conductSearch);
