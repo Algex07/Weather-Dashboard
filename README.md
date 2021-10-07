@@ -6,3 +6,4 @@ The time and date was added using moment js.
 Once data from search city was saved to local storage and display dynamically on webpage a click function was added to search for the saved city. 
 A button was added to clear the saved city if users wanted to clear it.
 ![initial layout](https://github.com/Algex07/Weather-Dashboard/blob/main/assets/initial%20layout%20for%20the%20app.png?raw=true)
+![progres layout](https://github.com/Algex07/Weather-Dashboard/blob/main/assets/weather%20dashbord%20update.png?raw=true)
