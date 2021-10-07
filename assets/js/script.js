@@ -21,30 +21,24 @@ $(document).ready(function () {
 
 })
 
-
-console.log("I am here")
-
-form.addEventListener("submit", conductSearch);
-
-let search =input
-
-function conductSearch(event) {
-
+function searchWeather(event) {
     event.preventDefault();
-    search = document.querySelector("#input").value;
-    
+    let search = document.querySelector("#input").value
+    conductSearch(search)
+
+}
+
+function conductSearch(search) {
+
     let apiCurrentWeather = apiBaseURL + search + apiKey;
-    
+
     console.log(search);
-if(!search ){
-window.location.href = "index.html"; alert("You must enter a City")}
+    if (!search) {
+        window.location.href = "index.html"; alert("You must enter a City")
+    }
 
-
-    fetchApi(apiCurrentWeather)
-
-
-
-    function fetchApi(apiCurrentWeather) {
+    console.log(apiCurrentWeather)
+    
         fetch(apiCurrentWeather)
             .then(function (response) {
                 return response.json();
@@ -56,7 +50,7 @@ window.location.href = "index.html"; alert("You must enter a City")}
 
                 console.log(data);
                 results.innerHTML = ""
-                
+
                 results.innerHTML += `<h3> ${data.name}</h3>`;
 
 
@@ -68,7 +62,7 @@ window.location.href = "index.html"; alert("You must enter a City")}
 
                 fetch(apiFutureDays)
                 console.log(apiFutureDays)
-                
+
                 fetch(apiFutureDays)
                     .then(function (response) {
                         return response.json();
@@ -77,7 +71,7 @@ window.location.href = "index.html"; alert("You must enter a City")}
                     .then(function (data1) {
                         results.innerHTML = "";
                         results.innerHTML += `<h3> ${data.name}</h3>`;
-                        
+
 
 
                         document.body.querySelector("#weather").innerHTML
@@ -156,26 +150,26 @@ window.location.href = "index.html"; alert("You must enter a City")}
                         let forecastDiv = document.getElementById("forecast")
                         forecastDiv.append(day1, day2, day3, day4, day5)
 
-                        
+
                     });
 
 
 
                 let searchData = search
-                let searchArray = JSON.parse(localStorage.getItem("searchArray"))||[]
-                if (searchArray.indexOf(searchData) == -1){
-                    
-                
-                searchArray.push(searchData);
+                let searchArray = JSON.parse(localStorage.getItem("searchArray")) || []
+                if (searchArray.indexOf(searchData) == -1) {
+
+
+                    searchArray.push(searchData);
                 }
                 console.log(searchArray)
 
-    
+
                 localStorage.setItem("searchArray", JSON.stringify(searchArray))
                 console.log(searchArray)
-               
 
-                
+
+
 
 
 
@@ -189,47 +183,42 @@ window.location.href = "index.html"; alert("You must enter a City")}
     }
 
 
-}
-let newButton;
 function renderSearchHistory(searchArray) {
-    
+
     document.querySelector("#savedCity")
     ul.innerHTML = ""
     console.log(searchArray);
 
     for (let i = 0; i < searchArray.length; i++) {
-        newButton = `<li><button class='btn btn-sm' data-name='${searchArray[i]}'>${searchArray[i]}</button></li>`
+       let newButton = `<li><button onClick="reSearch(this)" class='btn btn-sm' data-name='${searchArray[i]}'>${searchArray[i]}</button></li>`
         ul.innerHTML += newButton;
-         
+
     }
- 
+
 }
-let clickedCity;
-let savedCityButton = document.getElementById("savedCity");
-savedCityButton.addEventListener("click", function(event){
-
-//event.preventDefault()
-newButton = event.target;
-
-clickedCity = newButton.getAttribute("data-name")
 
 
+function reSearch(event) {
+
+
+
+    newButton = event;
+    console.log(newButton)
+    clickedCity = newButton.dataset.name
     console.log("data from clicked city", clickedCity)
-   
 
-    
-})
+    conductSearch(clickedCity)
+}
 
 
 
 let ClearBtn = document.getElementById("clearBtn");
-ClearBtn.addEventListener('click', function(){
+ClearBtn.addEventListener('click', function () {
     localStorage.removeItem('searchArray');
     window.location.href = "index.html"
 })
 
+form.addEventListener("submit", searchWeather);
 
 
 
-
-//document.getElementById("#listcities").addEventListener("onclick" , conductSearch);
