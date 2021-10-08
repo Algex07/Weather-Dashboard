@@ -7,3 +7,4 @@ Once data from search city was saved to local storage and display dynamically on
 A button was added to clear the saved city if users wanted to clear it.
 ![initial layout](https://github.com/Algex07/Weather-Dashboard/blob/main/assets/initial%20layout%20for%20the%20app.png?raw=true)
 ![progres layout](https://github.com/Algex07/Weather-Dashboard/blob/main/assets/weather%20dashbord%20update.png?raw=true)
+![progres with more diplay](https://github.com/Algex07/Weather-Dashboard/blob/main/assets/updated%20layout%20and%20updated%20js.png?raw=true)
