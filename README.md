@@ -1,3 +1,9 @@
+# Weather Dashboard
+
+## Description
+
+## Licenses
+
 Initial structure was created with index.html; header,search area, and basic layout for current weather and future weather using core html and library(bootstrap). minimal style.css was used.
 Two set of API were created with guideline from the openweathermap.org.(one for current weather and one for future weather)
 after data`s were gather and populated on webpage the the icon was added that represent the weather conditon. 
