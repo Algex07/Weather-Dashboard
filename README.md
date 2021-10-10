@@ -1,8 +1,4 @@
-# Weather Dashboard
 
-## Description
-Current weather application that gets your local area and give yous ability to search any city in the worl's current weather and fiveday forecast
-## Licenses
 
 Initial structure was created with index.html; header,search area, and basic layout for current weather and future weather using core html and library(bootstrap). minimal style.css was used.
 Two set of API were created with guideline from the openweathermap.org.(one for current weather and one for future weather)
